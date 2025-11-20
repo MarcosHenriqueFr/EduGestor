@@ -12,6 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Essa classe representa o Controller de autorização ("/auth")
+ * <p>
+ *     Possui métodos para lidar com a criação e entrada de usuários ({@link Funcionario}) no sistema
+ * </p>
+ */
 @Controller
 @RequestMapping(path = "auth")
 @Validated
@@ -23,6 +29,13 @@ public class AuthController {
         this.funcionarioRepository = funcionarioRepository;
     }
 
+    /**
+     *
+     * @param cadastroRequest Contém as informações de nome, email e senha do usuário
+     * @param session O objeto de session http para manter as informações até o logout
+     * @return Para a página de home com o {@link HomeController},
+     * colocando somente informações seguras na session com {@link CadastroResponse}
+     */
     @PostMapping(path = "cadastro")
     public String salvarFuncionario(@ModelAttribute @Valid CadastroRequest cadastroRequest, HttpSession session){
 

@@ -8,27 +8,27 @@
 </head>
 <body class="p-4">
 
-<h1>Cadastrar aluno</h1>
+    <h1>Cadastrar aluno</h1>
 
-<form th:action="@{/alunos}" th:object="${alunoForm}" method="post">
+    <form th:action="@{/alunos}" th:object="${alunoForm}" method="post">
 
-    <div class="mb-3">
-        <label>Nome</label>
-        <input class="form-control" th:field="*{nome}">
-    </div>
+        <div class="mb-3">
+            <label>Nome</label>
+            <input class="form-control" th:field="*{nome}">
+        </div>
 
-    <div class="mb-3">
-        <label>Curso</label>
-        <select class="form-select" th:field="*{idCurso}">
-            <option th:each="c : ${cursos}"
-                    th:value="${c.id}"
-                    th:text="${c.nome + ' (' + c.turno + ')'}">
-            </option>
-        </select>
-    </div>
+        <div class="mb-3">
+            <label>Curso</label>
+            <select class="form-select" th:field="*{idCurso}">
+                <option th:each="c : ${cursos}"
+                        th:value="${c.id}"
+                        th:text="${c.nome + ' (' + c.turno + ')'}">
+                </option>
+            </select>
+        </div>
 
-    <button class="btn btn-success">Salvar</button>
-</form>
+        <button class="btn btn-success">Salvar</button>
+    </form>
 
 </body>
 </html>

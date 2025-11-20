@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Essa classe contém toda a lógica sobre a entidade {@link Aluno}
+ * <p>
+ *     Ela contém métodos que relacionam {@link Aluno} e {@link Curso}
+ * </p>
+ */
 @Controller
 @RequestMapping(path = "alunos")
 public class AlunoController {
@@ -29,6 +35,14 @@ public class AlunoController {
         this.alunosCursosRepository = alunosCursosRepository;
     }
 
+    /**
+     * <p>
+     *     Esse método mostra a página principal de criação de novos alunos,
+     *     fazendo a busca de toda a informação através da Entidade Associativa {@link AlunosCursos}
+     * </p>
+     * @param model Para mandar a lista temporária para a página de alunos
+     * @return Renderiza a página de alunos
+     */
     @GetMapping
     public String listarAlunos(Model model) {
 
@@ -47,7 +61,11 @@ public class AlunoController {
         return "alunos";
     }
 
-
+    /**
+     *
+     * @param model Para enviar o DTO e os cursos disponíveis para a página no endpoint("/alunos/novo")
+     * @return A página renderizada com o formulário de alunos
+     */
     @GetMapping(path = "novo")
     public String novoAluno(Model model) {
         model.addAttribute("alunoForm", new AlunoForm("", null));
@@ -56,6 +74,13 @@ public class AlunoController {
     }
 
 
+    /**
+     * <p>
+     *     Esse método é executado logo após o submit do form para salvar o aluno no banco
+     * </p>
+     * @param form O dto para mapeamento de cursos e nome do aluno
+     * @return Redireciona o usuário novamente para a página de listagem de alunos
+     */
     @PostMapping
     public String salvarAluno(@ModelAttribute AlunoForm form) {
 
