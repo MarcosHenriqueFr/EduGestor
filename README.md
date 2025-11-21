@@ -104,5 +104,6 @@ INSERT INTO cursos(categoria, nome, curso) values('GRADUACAO', 'Administração'
 | <kbd>POST /alunos   </kbd>         | Cria um novo usuário no banco
 | <kbd>POST /auth/cadastro    </kbd> | Cria um novo usuário (Funcionário)
 
+Link do repositório: https://github.com/MarcosHenriqueFr/EduGestor
 
 **Obrigado pela sua atenção. Qualquer feedback é bem-vindo!**
